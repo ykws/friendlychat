@@ -145,6 +145,9 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
   }
 
   func loadAd() {
+    self.banner.adUnitID = kBannerAdUnitID
+    self.banner.rootViewController = self
+    self.banner.load(GADRequest())
   }
 
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
