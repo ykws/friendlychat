@@ -75,6 +75,7 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
   }
 
   func configureStorage() {
+    storageRef = FIRStorage.storage().reference()
   }
 
   func configureRemoteConfig() {
