@@ -142,6 +142,7 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
   }
 
   func logViewLoaded() {
+    FIRCrashMessage("View loaded")
   }
 
   func loadAd() {
