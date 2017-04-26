@@ -142,6 +142,13 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
   }
 
   func sendMessage(withData data: [String: String]) {
+    var mdata = data
+    mdata[Constants.MessageFields.name] = FIRAuth.auth()?.currentUser?.displayName
+    if let photoURL = FIRAuth.auth()?.currentUser?.photoURL {
+      mdata[Constants.MessageFields.photoURL] = photoURL.absoluteString
+    }
+    
+    self.ref.child("messages").childByAutoId().setValue(mdata)
   }
 
   // MARK: - Image Picker
