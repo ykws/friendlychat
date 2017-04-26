@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions
     launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     FIRApp.configure()
-    GADMobileAds.configure(withApplicationID: "ca-app-pub-2480981947215983~8049689158")
+    GADMobileAds.configure(withApplicationID: "ca-app-pub-2480981947215983/9526422355")
     GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
     GIDSignIn.sharedInstance().delegate = self
     return true

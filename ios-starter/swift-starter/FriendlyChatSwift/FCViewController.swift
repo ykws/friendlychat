@@ -25,7 +25,7 @@ import GoogleMobileAds
  * using AdMob can store them as custom values in another plist, or simply use constants. Note that
  * these ad units are configured to return only test ads, and should not be used outside this sample.
  */
-let kBannerAdUnitID = "ca-app-pub-3940256099942544/2934735716"
+let kBannerAdUnitID = "ca-app-pub-2480981947215983/9526422355"
 
 @objc(FCViewController)
 class FCViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
@@ -147,9 +147,12 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
   }
 
   func loadAd() {
+    print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
     self.banner.adUnitID = kBannerAdUnitID
     self.banner.rootViewController = self
-    self.banner.load(GADRequest())
+    let request = GADRequest()
+    request.testDevices = [ kGADSimulatorID ]
+    self.banner.load(request)
   }
 
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
