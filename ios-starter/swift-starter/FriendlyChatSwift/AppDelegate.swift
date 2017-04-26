@@ -40,6 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
       print("Error \(error)")
       return
     }
+    
+    guard let authentication = user.authentication else { return }
+    let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                      accessToken: authentication.accessToken)
+    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+      if let error = error {
+        print("Error \(error)")
+        return
+      }
+    }
   }
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions
