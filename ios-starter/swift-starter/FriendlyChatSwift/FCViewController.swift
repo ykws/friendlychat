@@ -122,6 +122,15 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
   }
 
   @IBAction func inviteTapped(_ sender: AnyObject) {
+    if let invite = FIRInvites.inviteDialog() {
+      invite.setInviteDelegate(self)
+      invite.setMessage("Try this out!\n -\(FIRAuth.auth()?.currentUser?.displayName ?? "")")
+      invite.setTitle("FriendlyChat")
+      invite.setDeepLink("app_url")
+      invite.setCallToActionText("Install!")
+      invite.setCustomImage("https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272.92dp.png")
+      invite.open()
+    }
   }
 
   func logViewLoaded() {
