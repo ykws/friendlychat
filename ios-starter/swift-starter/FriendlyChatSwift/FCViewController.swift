@@ -132,6 +132,14 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
       invite.open()
     }
   }
+  
+  func inviteFinished(withInvitations invitationIds: [Any], error: Error?) {
+    if let error = error {
+      print("Failed: \(error.localizedDescription)")
+    } else {
+      print("Invitations send")
+    }
+  }
 
   func logViewLoaded() {
   }
