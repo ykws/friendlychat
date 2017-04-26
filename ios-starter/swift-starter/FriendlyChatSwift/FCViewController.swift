@@ -79,6 +79,9 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
   }
 
   func configureRemoteConfig() {
+    remoteConfig = FIRRemoteConfig.remoteConfig()
+    let remoteConfigSettings = FIRRemoteConfigSettings(developerModeEnabled: true)
+    remoteConfig.configSettings = remoteConfigSettings!
   }
 
   func fetchConfig() {
