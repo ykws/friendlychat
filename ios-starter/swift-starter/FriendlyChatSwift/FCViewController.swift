@@ -118,6 +118,7 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
   }
 
   @IBAction func didPressCrash(_ sender: AnyObject) {
+    FIRCrashMessage("Cause Crash button clicked")
     fatalError()
   }
 
